@@ -1,0 +1,18 @@
+description = "The $project.name module"
+
+apply from: "$project.rootDir/settings/proto.gradle"
+
+dependencies {
+    compile(
+            project.capraia.modules.slf4j.api,
+            project.capraia.modules.protobuf,
+    )
+    runtime project.capraia.modules.slf4j.impl
+}
+
+idea {
+    module {
+        sourceDirs += project.file("$project.protobuf.generatedFilesBaseDir/main/java")
+        generatedSourceDirs += project.file("$project.protobuf.generatedFilesBaseDir/main/java")
+    }
+}
