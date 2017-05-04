@@ -150,7 +150,7 @@ public class TSocket {
                     handleRequest(request);
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                HANDLER_LOG.warn("" + e);
             }
             HANDLER_LOG.debug("Stopping ThreadNo " + threadNumber);
             runningThreads.getAndDecrement();
