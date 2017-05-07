@@ -26,6 +26,7 @@ package com.github.jtendermint.jabci.socket;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -90,6 +91,16 @@ public class TSocket {
 
     private final static AtomicInteger runningThreads = new AtomicInteger();
     private List<Object> _listeners = new ArrayList<>();
+
+    private ServerSocket serverSocket;
+
+    public TSocket() {
+        try {
+            serverSocket = new ServerSocket();
+        } catch (IOException e) {
+            SOCKET_LOG.warn("" + e);
+        }
+    }
 
     class SocketHandler implements Runnable {
         private final int threadNumber;
@@ -282,6 +293,17 @@ public class TSocket {
     }
 
     /**
+     * Terminate the blocking {@link ServerSocket#accept()} call.
+     */
+    public void shutdown() {
+        try {
+            serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Start listening on the default tmsp port 46658
      */
     public void start() {
@@ -295,7 +317,8 @@ public class TSocket {
     public void start(int portNumber) {
         SOCKET_LOG.debug("starting serversocket");
 
-        try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
+        try {
+            serverSocket.bind(new InetSocketAddress(portNumber));
             while (true) {
                 Socket clientSocket = serverSocket.accept();
                 new Thread(new SocketHandler(clientSocket)).start();
@@ -304,7 +327,6 @@ public class TSocket {
         } catch (IOException e) {
             SOCKET_LOG.debug("Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
             SOCKET_LOG.debug(e.getMessage());
-            e.printStackTrace();
         }
     }
 
