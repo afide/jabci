@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 - 2017
+ * Copyright (c) 2016 - 2018
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,13 +24,11 @@
 package com.github.jtendermint.jabci.api;
 
 /**
- * TMSP-Protocol<br>
+ * ABCI-Protocol<br>
  * Bundled Interface of Sub-Interfaces
  * 
  * <br>
- * See <a
- * href="https://github.com/tendermint/tmsp">https://github.com/tendermint
- * /tmsp</a> for more info
+ * See <a href="https://github.com/tendermint/abci">https://github.com/tendermint /abci</a> for more info
  * 
  * @version 26.05.2016
  *

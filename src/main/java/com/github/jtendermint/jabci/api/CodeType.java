@@ -23,19 +23,11 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.types.RequestEndBlock;
-import com.github.jtendermint.jabci.types.ResponseEndBlock;
-
-public interface IEndBlock {
-
-    /**
-     * Signals the end of a block. Called prior to each Commit after all
-     * transactions Returns:<br>
-     * Validators ([]Validator): Changed validators with new voting powers (0 to
-     * remove)
-     * 
-     * @param req the Request representing data about the EndBlock (height,...)
-     */
-    ResponseEndBlock requestEndBlock(RequestEndBlock req);
-
+public interface CodeType {
+    
+    public static final int OK = 0;
+    
+    public static final int BAD = 1;
+    public static final int BadNonce = 2;
+    
 }

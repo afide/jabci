@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 - 2017
+ * Copyright (c) 2016 - 2018
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.types.Types.RequestBeginBlock;
-import com.github.jtendermint.jabci.types.Types.ResponseBeginBlock;
+import com.github.jtendermint.jabci.types.RequestBeginBlock;
+import com.github.jtendermint.jabci.types.ResponseBeginBlock;
 
 public interface IBeginBlock {
 

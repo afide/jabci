@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2016 - 2017
+ * Copyright (c) 2016 - 2018
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +23,16 @@
  */
 package com.github.jtendermint.jabci.api;
 
-import com.github.jtendermint.jabci.types.Types.RequestCheckTx;
-import com.github.jtendermint.jabci.types.Types.ResponseCheckTx;
+import com.github.jtendermint.jabci.types.RequestCheckTx;
+import com.github.jtendermint.jabci.types.ResponseCheckTx;
 
 public interface ICheckTx {
 
     /**
-     * Validate a transaction. This message should not mutate the state. Transactions are first run through CheckTx before broadcast to peers in the mempool layer. You can make CheckTx semi-stateful and clear the state upon Commit or BeginBlock, to allow for dependent sequences of transactions in the same block.
+     * Validate a transaction. This message should not mutate the state. Transactions are first run through CheckTx before broadcast to
+     * peers in the mempool layer. You can make CheckTx semi-stateful and clear the state upon Commit or BeginBlock, to allow for dependent
+     * sequences of transactions in the same block.
+     * 
      * @param req
      * @return
      */
